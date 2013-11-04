@@ -1,0 +1,42 @@
+﻿@model WorkoutData.Person
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Create", "Login"))
+        {
+            <div>
+                @Html.LabelFor(p=>p.PersonLogin.EmailAddress)
+                @Html.TextBoxFor(p => p.PersonLogin.EmailAddress)
+            </div>
+            <div>
+                @Html.LabelFor(p=>p.FirstName)
+                @Html.TextBoxFor(p => p.FirstName)
+            </div>
+            <div>
+                @Html.LabelFor(p=>p.LastName)
+                @Html.TextBoxFor(p => p.LastName)
+            </div>
+            <div>
+                @Html.LabelFor(p=>p.BirthDate)
+                @Html.TextBoxFor(p => p.BirthDate)
+            </div>
+            <div>
+                @Html.LabelFor(p=>p.PersonLogin.Password)
+                @Html.PasswordFor(p => p.PersonLogin.Password)
+            </div>
+            <input type="submit" value="Create"/>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@model WorkoutData.Login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("CheckLogin", "Login"))
+        {
+            <div>
+                @Html.LabelFor(m => m.EmailAddress)
+                @Html.TextBoxFor(m => m.EmailAddress)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </div>
+            
+            <input type="submit" value="login" />
+        }
+    </div>
+</body>
+</html>
