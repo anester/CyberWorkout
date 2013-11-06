@@ -10,22 +10,38 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @using (Html.BeginForm("CheckLogin", "Login"))
+    <div class="page-header">
+        <h1>Login</h1>
+    </div>
+
+    <div class="container">
+        @using (Html.BeginForm("CheckLogin", "Login", FormMethod.Post, new { @class = "form-horizontal" }))
         {
-            <div>
-                @Html.LabelFor(m => m.EmailAddress)
-                @Html.TextBoxFor(m => m.EmailAddress)
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
+            <div class="form-group">
+                @Html.LabelFor(m => m.EmailAddress, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(m => m.EmailAddress, new { id = "tbemail", @class = "form-control" })
+                </div>
             </div>
             
-            <input type="submit" value="login" />
+            <div class="form-group"> 
+                @Html.LabelFor(m => m.Password, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-6">
+                    @Html.PasswordFor(m => m.Password, new { id = "tbepassword", @class = "form-control" })
+                </div>
+            </div>
+                <input type="submit" value="Login" />
+
         }
     </div>
+
+    <script src="~/Scripts/jquery-2.0.3.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/View/Account/Index.js"></script>
 </body>
 </html>

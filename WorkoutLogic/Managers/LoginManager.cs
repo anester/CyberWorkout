@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -80,13 +81,29 @@ namespace WorkoutLogic.Managers
             return true;
         }
 
+        public const string DEFAULT_KEY = "0P9ln81asdf#%dog1w8as2g2ABY7V0d=";
+        public const string DEFAULT_SEED = "dIOh4fhx5iL6JzGw6b2B1yp56jxShQqw";
+
         private static string encodePassword(string password)
         {
+            byte[] salt = Encoding.UTF8.GetBytes(DEFAULT_SEED);
+            byte[] initVector = Encoding.UTF8.GetBytes(DEFAULT_KEY);
+            ICryptoTransform encryptor;
+
             byte[] encodedpass = Encoding.UTF8.GetBytes(password);
-            SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
-            Byte[] hashed = sha1.ComputeHash(encodedpass);
-            string hashedpasswordstr = Encoding.UTF8.GetString(hashed);
-            return hashedpasswordstr;
+            RijndaelManaged aes = new RijndaelManaged() { BlockSize = 256, KeySize = 256 };
+            encryptor = aes.CreateEncryptor(salt, initVector);
+
+            using (MemoryStream memStr = new MemoryStream())
+            {
+                CryptoStream crypto = new CryptoStream(memStr, encryptor, CryptoStreamMode.Write);
+                crypto.Write(encodedpass, 0, encodedpass.Length);
+                crypto.FlushFinalBlock();
+                Byte[] hashed = memStr.ToArray();
+                string hashedpasswordstr = Encoding.UTF8.GetString(hashed);
+                
+                return hashedpasswordstr;
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using WorkoutLogic.Managers;
 
-namespace SimpleList
+namespace WorkoutWeb
 {
     public class SessionRequiredAttribute : ActionFilterAttribute
     {

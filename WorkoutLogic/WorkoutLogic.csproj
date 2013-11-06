@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Managers\AccountCheckManager.cs" />
     <Compile Include="Managers\BaseManager.cs" />
+    <Compile Include="Managers\HomeManager.cs" />
     <Compile Include="Managers\LoginManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

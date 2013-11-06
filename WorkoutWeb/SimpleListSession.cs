@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Linq;
 
-namespace SimpleList
+namespace WorkoutWeb
 {
 
     public class CyberWorkoutSession : WorkoutData.Contracts.ICyberWorkoutWebSession

@@ -120,9 +120,25 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WorkoutData\WorkoutData.csproj">
+      <Project>{6e8edd69-ca01-4938-b3ff-18cf3d16434f}</Project>
+      <Name>WorkoutData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WorkoutLogic\WorkoutLogic.csproj">
+      <Project>{1622260f-728f-4a32-9bf3-ee3b6c810e0c}</Project>
+      <Name>WorkoutLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WorkoutUtils\WorkoutUtils.csproj">
+      <Project>{d5eca05a-d26e-4477-82f3-b15f4f3e5f14}</Project>
+      <Name>WorkoutUtils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WorkoutWebApp\WorkoutWebApp.csproj">
       <Project>{F0A0B3C5-BB79-4AEA-9CEA-069F98825013}</Project>
       <Name>WorkoutWebApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WorkoutWeb\WorkoutWeb.csproj">
+      <Project>{af61c27b-597c-45fa-809a-54549f1336e9}</Project>
+      <Name>WorkoutWeb</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

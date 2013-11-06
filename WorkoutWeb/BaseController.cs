@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using WorkoutData.Contracts;
 
 
-namespace SimpleList
+namespace WorkoutWeb
 {
     public class BaseController : Controller
     {
