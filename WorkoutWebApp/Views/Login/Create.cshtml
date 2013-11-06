@@ -10,33 +10,52 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @using (Html.BeginForm("Create", "Login"))
+    <div class="page-header">
+        <h1>Create User</h1>
+    </div>
+
+    <div class="container">
+        @using (Html.BeginForm("Create", "Login", FormMethod.Post, new { @class = "form-horizontal" }))
         {
-            <div>
-                @Html.LabelFor(p=>p.PersonLogin.EmailAddress)
-                @Html.TextBoxFor(p => p.PersonLogin.EmailAddress)
+            <div class="form-group">
+                @Html.LabelFor(p => p.PersonLogin.EmailAddress, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-6">@Html.TextBoxFor(p => p.PersonLogin.EmailAddress, new { id="tbemail", @class = "form-control" })</div>
+                <div class="col-sm-4">
+                    <div class="alert" id="msgemail" style="display:none;">Exists</div>
+                </div>
             </div>
-            <div>
-                @Html.LabelFor(p=>p.FirstName)
-                @Html.TextBoxFor(p => p.FirstName)
+            <div class="form-group">
+                @Html.LabelFor(p => p.Handle, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">@Html.TextBoxFor(p => p.Handle, new { id="tbhandle", @class = "form-control" })</div>
             </div>
-            <div>
-                @Html.LabelFor(p=>p.LastName)
-                @Html.TextBoxFor(p => p.LastName)
+            <div class="form-group">
+                @Html.LabelFor(p => p.FirstName, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">@Html.TextBoxFor(p => p.FirstName, new { @class = "form-control" })</div>
             </div>
-            <div>
-                @Html.LabelFor(p=>p.BirthDate)
-                @Html.TextBoxFor(p => p.BirthDate)
+            <div class="form-group">
+                @Html.LabelFor(p => p.LastName, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">@Html.TextBoxFor(p => p.LastName, new { @class = "form-control" })</div>
             </div>
-            <div>
-                @Html.LabelFor(p=>p.PersonLogin.Password)
-                @Html.PasswordFor(p => p.PersonLogin.Password)
+            <div class="form-group">
+                @Html.LabelFor(p => p.BirthDate, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">@Html.TextBoxFor(p => p.BirthDate, new { @class = "form-control" })</div>
             </div>
-            <input type="submit" value="Create"/>
+            <div class="form-group">
+                @Html.LabelFor(p => p.PersonLogin.Password, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">@Html.PasswordFor(p => p.PersonLogin.Password, new { @class = "form-control" })</div>
+            </div>
+            <input type="submit" value="Create" />
         }
     </div>
+
+    <script src="~/Scripts/jquery-2.0.3.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/View/Account/Create.js"></script>
+
 </body>
 </html>
