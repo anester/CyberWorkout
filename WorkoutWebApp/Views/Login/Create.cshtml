@@ -25,12 +25,15 @@
                 @Html.LabelFor(p => p.PersonLogin.EmailAddress, new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-6">@Html.TextBoxFor(p => p.PersonLogin.EmailAddress, new { id="tbemail", @class = "form-control" })</div>
                 <div class="col-sm-4">
-                    <div class="alert" id="msgemail" style="display:none;">Exists</div>
+                    <div id="msgemail" style="display:none;color:red;">Exists</div>
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(p => p.Handle, new { @class = "col-sm-2 control-label" })
-                <div class="col-sm-10">@Html.TextBoxFor(p => p.Handle, new { id="tbhandle", @class = "form-control" })</div>
+                <div class="col-sm-6">@Html.TextBoxFor(p => p.Handle, new { id="tbhandle", @class = "form-control" })</div>
+                <div class="col-sm-4">
+                    <div id="msghandle" style="display:none;color:red;">Exists</div>
+                </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(p => p.FirstName, new { @class = "col-sm-2 control-label" })
@@ -48,7 +51,7 @@
                 @Html.LabelFor(p => p.PersonLogin.Password, new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-10">@Html.PasswordFor(p => p.PersonLogin.Password, new { @class = "form-control" })</div>
             </div>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Create" id="btncreate" />
         }
     </div>
 
