@@ -32,6 +32,9 @@
                     <li><a href="#contact">Contact</a></li>
                     @RenderSection("menuleft", required: false)
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                </ul>
             </div>
             <!--/.nav-collapse -->
         </div>

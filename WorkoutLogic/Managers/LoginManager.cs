@@ -29,6 +29,13 @@ namespace WorkoutLogic.Managers
             return WebSession.UserLogin != null;
         }
 
+        public bool DoLogout()
+        {
+            WebSession.CurrentLogin = null;
+            WebSession.LoggedInTime = DateTime.MinValue;
+            return true;
+        }
+
         public LoginResponse DoLogin(string loginemail, string password)
         {
             string hashedpasswordstr = encodePassword(password);
@@ -100,7 +107,7 @@ namespace WorkoutLogic.Managers
                 crypto.Write(encodedpass, 0, encodedpass.Length);
                 crypto.FlushFinalBlock();
                 Byte[] hashed = memStr.ToArray();
-                string hashedpasswordstr = Encoding.UTF8.GetString(hashed);
+                string hashedpasswordstr = Convert.ToBase64String(hashed);
                 
                 return hashedpasswordstr;
             }

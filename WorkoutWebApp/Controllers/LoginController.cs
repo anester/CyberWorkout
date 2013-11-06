@@ -29,6 +29,12 @@ namespace WorkoutWebApp.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            Manager.DoLogout();
+            return RedirectToAction("Index");
+        }
+
         [HttpPost]
         public ActionResult CheckLogin(WorkoutData.Login login)
         {
