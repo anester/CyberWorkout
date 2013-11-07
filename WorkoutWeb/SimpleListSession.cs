@@ -83,5 +83,13 @@ namespace WorkoutWeb
                 CurrentLogin = value;
             }
         }
+
+        public string[] UserRoles
+        {
+            get
+            {
+                return string.IsNullOrEmpty(UserLogin.Roles) ? new string[] { } : UserLogin.Roles.Split(',');
+            }
+        }
     }
 }

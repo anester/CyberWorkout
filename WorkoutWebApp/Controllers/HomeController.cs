@@ -8,6 +8,7 @@ using WorkoutWeb;
 
 namespace WorkoutWebApp.Controllers
 {
+    [CustomAuthorization(Role="All")]
     public class HomeController : SecureController<HomeManager>
     {
         public ActionResult Index()

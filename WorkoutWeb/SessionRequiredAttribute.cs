@@ -10,12 +10,19 @@ using WorkoutLogic.Managers;
 
 namespace WorkoutWeb
 {
+    [AttributeUsage(AttributeTargets.Class)]
+    public class CustomAuthorizationAttribute : Attribute
+    {
+        public string Role { get; set; }
+    }
+
     public class SessionRequiredAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            LoginManager manager = new LoginManager(new CyberWorkoutSession());
-
+            CyberWorkoutSession websession = new CyberWorkoutSession();
+            LoginManager manager = new LoginManager(websession);
+            
             if (!manager.IsLoggedIn())
             {
                 if (filterContext.HttpContext.Request.IsAjaxRequest())
@@ -28,6 +35,23 @@ namespace WorkoutWeb
                     filterContext.Result = new RedirectToRouteResult(
                         new RouteValueDictionary { { "area", "" }, { "controller", "Login" }, { "action", "Index" } }
                     );
+                }
+            }
+            else
+            {
+                Type controllertype = filterContext.ActionDescriptor.ControllerDescriptor.ControllerType;
+                string[] roles = controllertype.GetCustomAttributes(typeof(CustomAuthorizationAttribute), false)
+                                               .OfType<CustomAuthorizationAttribute>()
+                                               .Select(c => c.Role)
+                                               .ToArray();
+                if (roles.Length > 0 && !roles.Contains("All"))
+                {
+                    if (websession.UserRoles.Where(ur => roles.Contains(ur)).FirstOrDefault() == null)
+                    {
+                        filterContext.Result = new RedirectToRouteResult(
+                            new RouteValueDictionary { { "area", "" }, { "controller", "Home" }, { "action", "Index" } }
+                        );
+                    }
                 }
             }
         }
