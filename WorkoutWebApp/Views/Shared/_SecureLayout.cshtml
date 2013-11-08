@@ -33,6 +33,7 @@
                     @RenderSection("menuleft", required: false)
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Account", "Index", "Account")</li>
                     <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
                 </ul>
             </div>

@@ -24,7 +24,7 @@ namespace WorkoutLogic.Managers
 
         public bool HandleExists(string handle)
         {
-            return Context.Persons.Count(h => h.Handle == handle) > 0;
+            return Context.People.Count(h => h.Handle == handle) > 0;
         }
     }
 }

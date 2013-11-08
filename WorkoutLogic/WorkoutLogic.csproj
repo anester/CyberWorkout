@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Managers\AccountCheckManager.cs" />
+    <Compile Include="Managers\AccountManager.cs" />
     <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\HomeManager.cs" />
     <Compile Include="Managers\LoginManager.cs" />

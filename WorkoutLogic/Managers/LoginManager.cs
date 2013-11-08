@@ -47,7 +47,7 @@ namespace WorkoutLogic.Managers
             }
             WebSession.CurrentLogin = login;
 
-            var person = Context.Persons.FirstOrDefault(p => p.LoginId == login.LoginId);
+            var person = Context.People.FirstOrDefault(p => p.LoginId == login.LoginId);
             WebSession.LoggedInUser = person;
             WebSession.LoggedInTime = DateTime.Now;
 
@@ -77,7 +77,7 @@ namespace WorkoutLogic.Managers
                 Context.Logins.Add(login);
                 Context.SaveChanges();
                 person.LoginId = login.LoginId;
-                Context.Persons.Add(person);
+                Context.People.Add(person);
                 Context.SaveChanges();
             }
             catch (Exception ex)
