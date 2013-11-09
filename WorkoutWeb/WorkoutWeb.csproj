@@ -94,10 +94,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseApiController.cs" />
     <Compile Include="BaseController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionRequiredAttribute.cs" />
-    <Compile Include="SimpleListSession.cs" />
+    <Compile Include="CyberWorkoutSession.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

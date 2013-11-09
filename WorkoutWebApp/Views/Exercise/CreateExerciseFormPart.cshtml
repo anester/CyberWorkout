@@ -1,0 +1,47 @@
+﻿<div class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="inputName" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            @Html.TextBox("inputName", "", new { id = "inputName", 
+                                                @class = "form-control", 
+                                                placeholder = Model.Name, 
+                                                data_prop="Name" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputDescription" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+            @Html.TextArea("inputDescription", "", new { id = "inputDescription", 
+                                                         @class = "form-control", 
+                                                         placeholder = Model.Description,
+                                                         data_prop="Description"})
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ddMuscleGroup" class="col-sm-2 control-label">Muscle Group</label>
+        <div class="col-sm-10">
+            @Html.DropDownList("ddMuscleGroup", (IEnumerable<SelectListItem>)@ViewBag.MuscleGroupDD, 
+                                                new { id = "ddMuscleGroup", 
+                                                      @class = "form-control",
+                                                      data_prop="MuscleGroup"})
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ddResistanceType" class="col-sm-2 control-label">Muscle Group</label>
+        <div class="col-sm-10">
+            @Html.DropDownList("ddResistanceType", (IEnumerable<SelectListItem>)@ViewBag.ResistanceDD, 
+                                                    new { id = "ddResistanceType", 
+                                                          @class = "form-control",
+                                                          data_prop="Resistance"})
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ddDifficulty" class="col-sm-2 control-label">Muscle Group</label>
+        <div class="col-sm-10">
+            @Html.DropDownList("ddDifficulty", (IEnumerable<SelectListItem>)@ViewBag.DifficultyDD, 
+                                                new { id = "ddDifficulty", 
+                                                      @class = "form-control",
+                                                      data_prop="Difficulty"})
+        </div>
+    </div>
+</div>

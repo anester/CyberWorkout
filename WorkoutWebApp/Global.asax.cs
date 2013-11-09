@@ -6,6 +6,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WorkoutLogic.Managers;
+using WorkoutWeb;
 
 namespace WorkoutWebApp
 {
@@ -23,6 +25,14 @@ namespace WorkoutWebApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+        }
+
+        protected void Session_Start()
+        {
+            CyberWorkoutSession websession = new CyberWorkoutSession();
+            LoginManager mngr = new LoginManager(websession);
+            mngr.DoLogin("bignester@gmail.com", "asdf12!@");
+            
         }
     }
 }

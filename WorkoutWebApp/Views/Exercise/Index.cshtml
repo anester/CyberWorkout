@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SecureLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+@section scripts {
+    <script src="~/Scripts/View/Exercise/Index.js"></script>
+}
+<div class="row">
+    <div>
+        <button type="button" class="btn btn-primary" id="btnCreate">Create</button>
+    </div>
+</div>
+
+<div style="display:none;" id="newExerciseDiv" class="container"></div>

@@ -45,5 +45,7 @@ namespace WorkoutData
         public MuscleGroupType MuscleGroup { get; set; }
         public ResistanceType Resistance { get; set; }
         public int Difficulty { get; set; }
+
+        public virtual IEnumerable<ExerciseStep> Steps { get; set; }
     }
 }
