@@ -53,9 +53,9 @@
     <Compile Include="Migrations\201311080148552_adding_exercise_objects.Designer.cs">
       <DependentUpon>201311080148552_adding_exercise_objects.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201311080154325_exercise.cs" />
-    <Compile Include="Migrations\201311080154325_exercise.Designer.cs">
-      <DependentUpon>201311080154325_exercise.cs</DependentUpon>
+    <Compile Include="Migrations\201311090435242_add_exercise_objects.cs" />
+    <Compile Include="Migrations\201311090435242_add_exercise_objects.Designer.cs">
+      <DependentUpon>201311090435242_add_exercise_objects.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,8 +74,8 @@
     <EmbeddedResource Include="Migrations\201311080148552_adding_exercise_objects.resx">
       <DependentUpon>201311080148552_adding_exercise_objects.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311080154325_exercise.resx">
-      <DependentUpon>201311080154325_exercise.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201311090435242_add_exercise_objects.resx">
+      <DependentUpon>201311090435242_add_exercise_objects.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

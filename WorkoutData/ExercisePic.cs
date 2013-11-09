@@ -16,8 +16,14 @@ namespace WorkoutData
     public class ExercisePic
     {
         public int ExercisePicId { get; set; }
+        public int ExerciseStepId { get; set; }
         public string Description { get; set; }
         public PicLocationType LocationType { get; set; }
         public string Path { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
+        public string FileType { get; set; }
+
+        public virtual ExerciseStep Step { get; set; }
     }
 }

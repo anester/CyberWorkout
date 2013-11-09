@@ -7,13 +7,13 @@ namespace WorkoutContext.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.1-21010")]
-    public sealed partial class exercise : IMigrationMetadata
+    public sealed partial class add_exercise_objects : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(exercise));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(add_exercise_objects));
         
         string IMigrationMetadata.Id
         {
-            get { return "201311080154325_exercise"; }
+            get { return "201311090435242_add_exercise_objects"; }
         }
         
         string IMigrationMetadata.Source
