@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using WorkoutData;
 using WorkoutLogic.Managers;
 using WorkoutWeb;
+using WorkoutWebApp.Models;
 
 namespace WorkoutWebApp.Controllers
 {
@@ -21,16 +22,39 @@ namespace WorkoutWebApp.Controllers
             return View();
         }
 
-        [HttpPost]
-        public PartialViewResult GetExercises(string fltrname, string fltrmusclegroup, string fltrdifficulty, string fltrresistancetype)
+        public PartialViewResult GetExercisesGridPart()
         {
-            return PartialView();
+            var exercises = Manager.GetExercises(0, 10);
+            ListWrapper<Exercise> wrapper = new ListWrapper<Exercise>(exercises);
+
+            return PartialView("GetExercisesGridPart", wrapper);
+        }
+
+        [HttpPost]
+        public PartialViewResult GetExercisesGridPart(string fltrname, string fltrmusclegroup, string fltrdifficulty, string fltrresistancetype)
+        {
+            var exercises = Manager.GetExercises(0, 10);
+            return PartialView("GetExercisesGridPart", new { Exercises = exercises });
         }
 
         public PartialViewResult CreateExerciseFormPart()
         {
 
             //SelectList lst = new SelectList()
+            setupDropDowns();
+
+            Exercise exercise = new Exercise
+            {
+                Name = "Exercise Name",
+                Description = "Exercise Description",
+                Resistance = ResistanceType.Body,
+                Difficulty = 1
+            };
+            return PartialView("CreateExerciseFormPart", exercise);
+        }
+
+        private void setupDropDowns()
+        {
             ViewBag.MuscleGroupDD = Enum.GetValues(typeof(MuscleGroupType))
                                         .Cast<MuscleGroupType>()
                                         .Select(e => new SelectListItem()
@@ -48,15 +72,6 @@ namespace WorkoutWebApp.Controllers
                                         });
 
             ViewBag.DifficultyDD = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }.Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() });
-
-            Exercise exercise = new Exercise
-            {
-                Name = "Exercise Name",
-                Description = "Exercise Description",
-                Resistance = ResistanceType.Body,
-                Difficulty = 1
-            };
-            return PartialView("CreateExerciseFormPart", exercise);
         }
 
         private string makeEnumStringFriendly(string str)

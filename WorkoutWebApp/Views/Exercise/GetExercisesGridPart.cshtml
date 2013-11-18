@@ -1,0 +1,27 @@
+﻿<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Muscle Group</th>
+            <th>Resistance</th>
+            <th>Difficulty</th>
+        </tr>
+        <tr>
+            <th colspan="4">Description</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.Items)
+    {
+        <tbody>
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.MuscleGroup.ToString()</td>
+                <td>@item.Resistance.ToString()</td>
+                <td>@item.Difficulty</td>
+            </tr>
+            <tr>
+                <td colspan="4">@item.Description</td>
+            </tr>
+        </tbody>
+    }
+</table>
